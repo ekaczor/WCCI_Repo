@@ -1,4 +1,10 @@
-base = "frontend"
-command = "npm ci && npm run build"
-publish = "frontend/dist"
-functions = "frontend/netlify/functions"
+[build]
+  base = "frontend"
+  command = "npm ci && npm run build"
+  publish = "frontend/dist"
+
+[functions]
+  external_node_modules = [
+    "module-one",
+    "module-two"
+  ]

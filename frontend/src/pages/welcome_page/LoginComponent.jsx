@@ -3,6 +3,8 @@ import RegisterLoginService from "../../services/RegisterLoginService";
 import UnauthorizedError from "../../errors/UnauthorizedError";
 import { useLocation, useNavigate } from "react-router-dom";
 
+//This is the page that needs to be changed so that the login will work correctly again. Starting at lines 35 and 48.
+
 // eslint-disable-next-line react/prop-types
 const LoginComponent = ({ toggleLogin }) => {
   const [formData, setFormData] = useState({
@@ -30,19 +32,21 @@ const LoginComponent = ({ toggleLogin }) => {
   const login = async (e) => {
     e.preventDefault();
     if (formIsValid()) {
-      try {
-        await RegisterLoginService.login(formData.username, formData.password);
-        navigate("/home");
-      } catch (error) {
-        if (error instanceof UnauthorizedError) {
-          displayErrorMessage("Incorrect Username or Password");
-          console.log("unauthorized!!!");
-        } else {
-          console.log(error);
-        }
-      }
+      navigate("/home")
+      // try {
+      //   await RegisterLoginService.login(formData.username, formData.password);
+      //   navigate("/home");
+      // } catch (error) {
+      //   if (error instanceof UnauthorizedError) {
+      //     displayErrorMessage("Incorrect Username or Password");
+      //     console.log("unauthorized!!!");
+      //   } else {
+      //     console.log(error);
+      //   }
+      // }
     } else {
-      displayErrorMessage("Missing Required Field!");
+      navigate("/home")
+      // displayErrorMessage("Missing Required Field!");
     }
   };
   useEffect(() => {
@@ -50,7 +54,7 @@ const LoginComponent = ({ toggleLogin }) => {
   }, []);
   return (
     <div className="bg-[#ffffff77] backdrop-blur border-white border-2 rounded-[25px] box-border w-[40vw] h-[70vh] min-w-[250px] flex flex-col items-center justify-center p-10 mx-4 my-8 ">
-      <h1 className="font-bold text-[#ffffff] text-4xl pb-10 px-10">LOGIN</h1>
+      <h1 className="font-bold text-[#f93c3c] text-4xl pb-10 px-10 text-center">JUST CLICK Sign In. BACKEND IS NOT RUNNING</h1>
       <form onSubmit={login} className="flex flex-col w-[100%] max-w-[400px]">
         <label htmlFor="username"></label>
         <input

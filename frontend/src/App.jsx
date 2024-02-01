@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WelcomePage from "./pages/welcome_page/WelcomePage";
 import { HomePage } from "./pages/home_page/HomePage";
-import FindGroupPage from "./pages/find_group/FindGroupPage";
+import FindGroupPage from "./pages/Find_Group/FindGroupPage";
 import MessagePage from "./pages/messages/MessagesPage";
 import MyProfile from "./pages/profile_page/MyProfile";
 import ContactPage from "./pages/contact_page/ContactPage";
